@@ -36,7 +36,7 @@ def perform_service():
         customer_data[customer_name] = False 
 
 
-    #service hours 
+#service hours for repair and parts needed
 
     if service_required == "repair":
         while True:
@@ -52,6 +52,7 @@ def perform_service():
     else:
         hours = services_data[service_required]["hours"]
 
+#this is fo rthe parts needed 
     
     if services_data[service_required]["parts_needed"]:
         while True:
@@ -65,7 +66,7 @@ def perform_service():
         part_cost = 0
 
 
-    #now we need to add the cost calculation where this requires to use our brain
+#now we need to add the cost calculation where this requires to use our brain
 
     rate = 40.0
 
@@ -79,7 +80,7 @@ def perform_service():
 
     total_cost = original_cost - discount
 
-    #now we need to print thr receipt format
+#now we need to print thr receipt format
 
     print("-" * 50)
     print("Receipt")
@@ -99,7 +100,7 @@ def perform_service():
         member_choice = input("Become member? (y/n): ").strip().lower()
         if member_choice == "y":
             customer_data[customer_name] = True
-            print("Now you are a member.")
+            print("Now you are a member.") #this prints the receipt for the customer
 
 def display_customers():
     for name, member in customer_data.items():
@@ -114,6 +115,7 @@ def display_parts():
     for part_name, price in parts.items():
         print(part_name, "->", price)
 
+#updating services for the customer
 def update_services():
     service_name = input("Enter service name to update: ").strip().lower()
 
@@ -131,6 +133,7 @@ def update_services():
     else:
         print("Service not found")
 
+#updating the parts for the customers
 def update_parts():
     action = input("Add or remove part? (a/r): ").strip().lower()
 
@@ -148,7 +151,7 @@ def update_parts():
             print("Part not found")
     else:
         print("Invalid choice")
-
+#printing options to show for customers
 while True:
     print("\n1. Perform service")
     print("2. Display customers")
@@ -157,7 +160,7 @@ while True:
     print("5. Update services")
     print("6. Update parts")
     print("0. Exit")
-
+#asking customer to pick the choices
     choice = input("Choose: ").strip()
 
     if choice == "1":
